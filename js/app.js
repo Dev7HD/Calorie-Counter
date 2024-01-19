@@ -19,7 +19,7 @@ let isError = false;
  * @param {string} str - The input string.
  * @returns {string} - The cleaned input string.
  */
-function cleanInputString(str) {
+const cleanInputString = (str) => {
     const regex = /[+-\s]/g;
     return str.replace(regex, '');
 }
@@ -29,7 +29,7 @@ function cleanInputString(str) {
  * @param {string} str - The input string.
  * @returns {RegExpMatchArray} - True if the input is invalid, false otherwise.
  */
-function isInvalidInput(str) {
+const isInvalidInput = (str) => {
     const regex = /\d+e\d+/i;
     return str.match(regex);
 }
@@ -37,7 +37,7 @@ function isInvalidInput(str) {
 /**
  * Adds a new entry input section to the selected container.
  */
-function addEntry() {
+const addEntry = () => {
     const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
     const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
     const HTMLString = `
@@ -57,7 +57,7 @@ function addEntry() {
  * Calculates and displays the remaining calories based on user input.
  * @param {Event} e - The form submit event.
  */
-function calculateCalories(e) {
+const calculateCalories = (e) => {
     e.preventDefault();
     isError = false;
 
@@ -98,7 +98,7 @@ function calculateCalories(e) {
  * @param {NodeList} list - List of input elements.
  * @returns {number} - Total calories.
  */
-function getCaloriesFromInputs(list) {
+const getCaloriesFromInputs = (list) => {
     let calories = 0;
 
     for (let i = 0; i < list.length; i++) {
@@ -118,7 +118,7 @@ function getCaloriesFromInputs(list) {
 /**
  * Clears the form by removing all input containers and resetting values.
  */
-function clearForm() {
+const clearForm = () => {
     const inputContainers = Array.from(document.querySelectorAll('.input-container'));
 
     for (let i = 0; i < inputContainers.length; i++) {
